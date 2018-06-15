@@ -119,7 +119,7 @@ public class TechJobs {
                 System.out.println("***********");
 
                 for (Map.Entry<String, String> job : someJobs.get(i).entrySet()) {
-                    System.out.println(job.getKey() + ":" + "(" + job.getValue() + ")");
+                    System.out.println(job.getKey() + ":" + " " + job.getValue() + " ");
                     //print out * after each job
                 }
                 System.out.println("***********");
