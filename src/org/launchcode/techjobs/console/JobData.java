@@ -51,7 +51,7 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<HashMap<String, String>> goodJobs = new ArrayList<HashMap<String, String>>(allJobs);
+        ArrayList<HashMap<String, String>> goodJobs = new ArrayList<>(allJobs);
         goodJobs.addAll(allJobs);
 
         return goodJobs;
