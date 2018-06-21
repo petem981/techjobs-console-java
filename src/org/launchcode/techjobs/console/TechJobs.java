@@ -12,7 +12,7 @@ public class TechJobs {
 
     private static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -45,6 +45,7 @@ public class TechJobs {
                     ArrayList<String> results = JobData.findAll(columnChoice);
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
+                    results.sort(String.CASE_INSENSITIVE_ORDER);
 
                     // Print list of skills, employers, etc
                     for (String item : results) {
@@ -62,9 +63,16 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not yet implemented.");
+                    printJobs(JobData.findByValue(searchTerm));
+
                 } else {
+
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+
+                    if (JobData.findByColumnAndValue(searchField, searchTerm).isEmpty()) {
+                        System.out.println("No Results Found. Try A Different Search.");
+                    }
+
                 }
             }
         }
